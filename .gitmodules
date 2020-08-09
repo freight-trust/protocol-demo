@@ -1,0 +1,3 @@
+[submodule "git-edi"]
+	path = git-edi
+	url = https://github.com/freight-trust/git-edi
