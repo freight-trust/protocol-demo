@@ -1,0 +1,40 @@
+{
+  "shipmentEvent": {
+    "description": "The shipment event entity is a specialization of the event entity to support specification of data that only applies to a shipment event.", 
+    "allOf": [
+      {
+        "$ref": "#/components/schemas/event"
+      }, 
+      {
+        "type": "object", 
+        "properties": {
+          "eventType": {
+            "enum": [
+              "SHIPMENT"
+            ], 
+            "type": "string", 
+            "example": "SHIPMENT", 
+            "nullable": false
+          }, 
+          "eventTypeCode": {
+            "description": "Unique identifier for Event Type Code. For shipment events this can be:\n- RECE (Received)\n- CONF (Confirmed)\n- ISSU (Issued)\n- APPR (Approved)\n- SUBM (Submitted)\n- SURR (Surrendered)\n- REJE (Rejected)\n- PENA (Pending approval)", 
+            "nullable": false, 
+            "maxLength": 4, 
+            "enum": [
+              "RECE", 
+              "CONF", 
+              "ISSU", 
+              "APPR", 
+              "SUBM", 
+              "SURR", 
+              "REJE", 
+              "PENA"
+            ], 
+            "type": "string", 
+            "example": "RECE"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+    "BankStatement": {
+        "BankStatementLines": {
+            "BankStatementLine": [
+                {
+                    "TransactionType": "AMF", 
+                    "ChequeOrReferenceNumber": "ABC-123", 
+                    "TransactionDescription": "Accounts Maintenance Fee", 
+                    "PayeeName": "ANZ Bank", 
+                    "TransactionDate": "2006-11-20", 
+                    "StatementDate": "2006-11-20", 
+                    "TransactionAmount": "-100.00", 
+                    "CurrencyCode": "AUD"
+                }, 
+                {
+                    "TransactionType": "AMF", 
+                    "ChequeOrReferenceNumber": "ABC-123", 
+                    "TransactionDescription": "Accounts Maintenance Fee", 
+                    "PayeeName": "ANZ Bank", 
+                    "TransactionDate": "2006-11-20", 
+                    "StatementDate": "2006-11-20", 
+                    "TransactionAmount": "-100.00", 
+                    "CurrencyCode": "AUD"
+                }
+            ]
+        }
+    }
+}
