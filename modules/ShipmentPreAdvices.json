@@ -1,0 +1,183 @@
+{
+    "xs:schema": {
+        "@targetNamespace": "http://www.edi.com.au/EnterpriseService/", 
+        "@xmlns": "http://www.edi.com.au/EnterpriseService/", 
+        "@xmlns:xs": "http://www.w3.org/2001/XMLSchema", 
+        "@elementFormDefault": "qualified", 
+        "@attributeFormDefault": "unqualified", 
+        "xs:include": [
+            {
+                "@schemaLocation": "Elements.xsd"
+            }, 
+            {
+                "@schemaLocation": "Event.xsd"
+            }, 
+            {
+                "@schemaLocation": "Order.xsd"
+            }
+        ], 
+        "xs:element": {
+            "@name": "ShipmentPreAdvices", 
+            "@type": "ShipmentPreAdvices"
+        }, 
+        "xs:complexType": [
+            {
+                "@name": "ShipmentPreAdvices", 
+                "xs:sequence": {
+                    "xs:element": {
+                        "@name": "ShipmentPreAdvice", 
+                        "@type": "ShipmentPreAdvice", 
+                        "@maxOccurs": "unbounded"
+                    }
+                }
+            }, 
+            {
+                "@name": "ShipmentPreAdvice", 
+                "xs:sequence": {
+                    "xs:element": [
+                        {
+                            "@name": "Orders", 
+                            "@minOccurs": "0", 
+                            "xs:complexType": {
+                                "xs:sequence": {
+                                    "xs:element": {
+                                        "@name": "Order", 
+                                        "@type": "Order", 
+                                        "@maxOccurs": "unbounded"
+                                    }
+                                }
+                            }
+                        }, 
+                        {
+                            "@name": "PreAdviceID", 
+                            "@type": "xs:string"
+                        }, 
+                        {
+                            "@name": "Carrier", 
+                            "@type": "Organisation", 
+                            "@minOccurs": "0"
+                        }, 
+                        {
+                            "@name": "ReceivingAgent", 
+                            "@type": "Organisation", 
+                            "@minOccurs": "0"
+                        }, 
+                        {
+                            "@name": "SendingAgent", 
+                            "@type": "Organisation", 
+                            "@minOccurs": "0"
+                        }, 
+                        {
+                            "@name": "MasterBill", 
+                            "@type": "xs:string", 
+                            "@minOccurs": "0"
+                        }, 
+                        {
+                            "@name": "HouseBill", 
+                            "@type": "xs:string", 
+                            "@minOccurs": "0"
+                        }, 
+                        {
+                            "@name": "Cancelled", 
+                            "@type": "xs:boolean", 
+                            "@minOccurs": "0"
+                        }, 
+                        {
+                            "@name": "LoadPort", 
+                            "@type": "UNLOCO", 
+                            "@minOccurs": "0"
+                        }, 
+                        {
+                            "@name": "DischargePort", 
+                            "@type": "UNLOCO", 
+                            "@minOccurs": "0"
+                        }, 
+                        {
+                            "@name": "Buyer", 
+                            "@type": "Organisation"
+                        }, 
+                        {
+                            "@name": "Volume", 
+                            "@type": "DimensionValue", 
+                            "@minOccurs": "0"
+                        }, 
+                        {
+                            "@name": "Weight", 
+                            "@type": "DimensionValue", 
+                            "@minOccurs": "0"
+                        }, 
+                        {
+                            "@name": "Packs", 
+                            "@type": "DimensionValue", 
+                            "@minOccurs": "0"
+                        }, 
+                        {
+                            "@name": "Events", 
+                            "@type": "Events", 
+                            "@minOccurs": "0"
+                        }, 
+                        {
+                            "@name": "Notes", 
+                            "@type": "Notes", 
+                            "@minOccurs": "0"
+                        }, 
+                        {
+                            "@name": "TransportPlan", 
+                            "@minOccurs": "0", 
+                            "xs:complexType": {
+                                "xs:sequence": {
+                                    "xs:element": {
+                                        "@name": "TransportLeg", 
+                                        "@type": "PlannedLeg", 
+                                        "@maxOccurs": "unbounded"
+                                    }
+                                }
+                            }
+                        }, 
+                        {
+                            "@name": "Containers", 
+                            "@minOccurs": "0", 
+                            "xs:complexType": {
+                                "xs:sequence": {
+                                    "xs:element": {
+                                        "@name": "Container", 
+                                        "@type": "PlannedContainer", 
+                                        "@maxOccurs": "unbounded"
+                                    }
+                                }
+                            }
+                        }, 
+                        {
+                            "@name": "ReferenceNumber", 
+                            "@minOccurs": "0", 
+                            "xs:complexType": {
+                                "xs:simpleContent": {
+                                    "xs:extension": {
+                                        "@base": "xs:string", 
+                                        "xs:attribute": {
+                                            "@name": "Type", 
+                                            "@use": "required", 
+                                            "xs:simpleType": {
+                                                "xs:restriction": {
+                                                    "@base": "xs:NMTOKEN", 
+                                                    "xs:enumeration": [
+                                                        {
+                                                            "@value": "Shipment"
+                                                        }, 
+                                                        {
+                                                            "@value": "Declaration"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
